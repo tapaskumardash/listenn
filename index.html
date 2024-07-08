@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Listenn - A Music App</title>
+	<!-- StyleSheet -->
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+	<header>
+		<nav>
+			<span id="nav-logo">Listenn.</span>
+			<ul id="menu-bar" class="">
+				<li><a class="nav-links" href="/">Home</a></li>
+				<li><a class="nav-links" onclick="aboutClicked()">About</a></li>
+				<li><a class="nav-links" href="https://tapaskumardash.xyz/contact" target="_blank">Contact</a></li>
+				<li><a class="d-login-li nav-links" onclick="showLoginDashboard()">Login</a></li>
+			</ul>
+			<i id="menu-bar-ic" class='bx bx-menu'></i>
+		</nav>
+		<div class="hero">
+			<div class="hero-left-content">
+				<h1 id="d-wish">Welcome to <span>Listenn.</span></h1>
+				<p>Experience premium music with our ad-free app offering high-quality audio. Enjoy uninterrupted listening, background play, and lock screen controls. Elevate your music experience with seamless, uninterrupted playback. Your perfect soundtrack, anytime, anywhere.</p>
+				<div class="hero-left-btn-wrap">
+					<a href="#feed"><i class='bx bxs-music' ></i>Browse Music</a>
+					<a href="#"><i class='bx bxl-android'></i>Download App</a>
+				</div>
+			</div>
+			<div class="hero-right-content">
+				<img src="res/images/illu.jpeg">
+			</div>
+		</div>
+
+		<div class="m-nav">
+			<span id="m-logo">Listenn.</span>
+			<span id="login"><i class='bx bxs-user-account'></i></span>
+		</div>
+		<div class="m-hero">
+			<span id="m-hero-msg"></span>
+			<div class="m-hero-art">
+				<img class="m-hero-art1" src="res/images/illu.jpeg">
+				<div class="div">
+					<span id="m-time-hr"></span>
+					<span id="m-time-mn"></span>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="login-wrap">
+		<div class="login-box">
+			<span>Your Account</span>
+			<div id="login-place-wrap">
+				<div id="login-form-container" class="login-form">
+					<input type="text" id="name-field" placeholder="Enter your name">
+					<p id="m-error-msg"></p>
+					<button id="login-btn">Login</button>
+				</div>
+				<div id="logged-account-container" class="logged-account-container">
+					<span id="holder-name">Name:</span>
+					<i id="change-name-btn" class='bx bxs-edit'></i>
+				</div>
+			</div>
+			<div id="login-loader"></div>
+			<i id="close-login-btn" class='bx bx-x'></i>
+		</div>
+	</div>
+
+	<div class="music-player-wrap" id="music-player-wrap">
+		<div class="music-player">
+
+			<div class="music-player-nav">
+				<div class="bubble-wrap" id="close-music-player">
+					<i class='bx bx-x'></i>
+				</div>
+			</div>
+
+			<img src="res/images/temp-song.jpeg" id="music-image" alt="Track Image">
+
+			<span id="music-title">Into Your Arms</span>
+			<p id="artist-name">Tapas Kumar Dash</p>
+
+			<audio id="song">
+				<source id="track-source" src="res/tracks/future.mp3" type="audio/mpeg">
+			</audio>
+
+			<input type="range" value="0" id="progress">
+
+			<div class="controls">
+				<div class="" id="control-pre"><i class='bx bx-left-arrow-alt'></i></div>
+				<div><i onclick="playPause()" class='bx bx-play' id="control-on-off"></i></div>
+				<div class="" id="control-nxt"><i class='bx bx-right-arrow-alt'></i></div>
+			</div>
+		</div>
+	</div>
+
+	<div id="popup" class="">
+		<div id="popup-content-container">
+			<div id="popup-content"></div>
+			<i id="close-popup-btn" class='bx bx-x'></i>
+		</div>
+	</div>
+
+	<div class="feed" id="feed">
+
+		<span class="song-cat">English >></span>
+
+		<div class="feed-song-container">
+			<div class="song-box" id="i-dont-care.mp3">
+				<img class="song-image" src="res/tracks/banner/i-dont-care.jpeg">
+				<span class="song-title">I Don't Care</span>
+				<span class="song-artist">Ed Sheeran</span>
+			</div>
+			<div class="song-box" id="perfect.mp3">
+				<img class="song-image" src="res/tracks/banner/perfect.jpeg">
+				<span class="song-title">Perfect</span>
+				<span class="song-artist">Ed Sheeran</span>
+			</div>
+			<div class="song-box" id="into-your-arms.mp3">
+				<img class="song-image" src="res/tracks/banner/into-your-arms.jpeg">
+				<span class="song-title">Into Your Arms</span>
+				<span class="song-artist">Witt Lowry</span>
+			</div>
+			<div class="song-box" id="girls-like-you.mp3">
+				<img class="song-image" src="res/tracks/banner/girls-like-you.jpeg">
+				<span class="song-title">Girls Like You</span>
+				<span class="song-artist">Maroon 5</span>
+			</div>
+			<div class="song-box" id="let-me-love-you.mp3">
+				<img class="song-image" src="res/tracks/banner/let-me-love-you.jpeg">
+				<span class="song-title">Let Me Love You</span>
+				<span class="song-artist">DJ Snake</span>
+			</div>
+			<div class="song-box" id="die-for-you.mp3">
+				<img class="song-image" src="res/tracks/banner/die-for-you.png">
+				<span class="song-title">Die For You</span>
+				<span class="song-artist">Weeknd</span>
+			</div>
+			<div class="song-box" id="infinity.mp3">
+				<img class="song-image" src="res/tracks/banner/infinity.jpg">
+				<span class="song-title">Into Your Arms</span>
+				<span class="song-artist">Jaymes Young</span>
+			</div>
+			<div class="song-box" id="play-date.mp3">
+				<img class="song-image" src="res/tracks/banner/play-date.jpeg">
+				<span class="song-title">Play Date</span>
+				<span class="song-artist">Cry Baby</span>
+			</div>
+			<div class="song-box" id="summertime-sadness.mp3">
+				<img class="song-image" src="res/tracks/banner/summertime-sadness.jpg">
+				<span class="song-title">Summertime Sadness</span>
+				<span class="song-artist">Lena Del Rey</span>
+			</div>
+			<div class="song-box" id="legends-never-die.mp3">
+				<img class="song-image" src="res/tracks/banner/legends-never-die.jpeg">
+				<span class="song-title">Legends Never Die</span>
+				<span class="song-artist">Against The Current</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="banner">
+		<h2>#1 Song of this Week</h2>
+		<p>Tune in to the week's top hit! Discover and enjoy the #1 song exclusively on our music app.</p>
+		<div class="banner-btn-wrap">
+			<a id="banner-play-btn" style="cursor: pointer;">Play</a>
+		</div>
+	</div>
+
+	<div class="feed">
+		<span class="song-cat">Hindi >></span>
+
+		<div class="feed-song-container">
+			<div class="song-box" id="khuda-jane.mp3">
+				<img class="song-image" src="res/tracks/banner/khuda-jane.jpeg">
+				<span class="song-title">Khuda Jane</span>
+				<span class="song-artist">KK & Shilpa Rao</span>
+			</div>
+			<div class="song-box" id="kaise-hua.mp3">
+				<img class="song-image" src="res/tracks/banner/kaise-hua.jpg">
+				<span class="song-title">Kaise Hua</span>
+				<span class="song-artist">Vishal Mishra</span>
+			</div>
+			<div class="song-box" id="duniya.mp3">
+				<img class="song-image" src="res/tracks/banner/duniya.jpeg">
+				<span class="song-title">Duniya</span>
+				<span class="song-artist">Akhil & Dhvani Bhanushali</span>
+			</div>
+			<div class="song-box" id="janam-janam.mp3">
+				<img class="song-image" src="res/tracks/banner/janam-janam.jpeg">
+				<span class="song-title">Janam Janam</span>
+				<span class="song-artist">Arijit Singh</span>
+			</div>
+			<div class="song-box" id="ye-dooriyan.mp3">
+				<img class="song-image" src="res/tracks/banner/ye-dooriyan.jpeg">
+				<span class="song-title">Ye Dooriyan</span>
+				<span class="song-artist">Mohit Chauhan & Pritam Chakraborty</span>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<span>Thanks for Using <span class="footer-logo">Listenn.</span> Your Perfect Music App</span>
+		<span class="abt-dev">Crafted by <a class="ft-dev" href="https://tapaskumardash.xyz" target="_blank">Tapas Kumar Dash</a> - Your Music, Your Experience, Perfected.</span>
+	</footer>
+
+	<!-- JavaScript -->
+	<script src="app.js"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+<!-- <div class="hero-right-features">
+	<span><i class='bx bx-block'></i> 100% Ad Free Experience</span>
+	<span><i class='bx bxs-music'></i> 30+ Collection of Songs</span>
+	<span><i class='bx bxs-file-plus'></i> One New Song Every Week</span>
+	<span><i class='bx bx-play-circle'></i> Background and Lockscreen Play</span>
+</div> -->
